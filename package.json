@@ -1,0 +1,33 @@
+{
+  "name": "react-demo",
+  "version": "1.0.0",
+  "description": "this is a react sample project",
+  "keywords": [
+    "react",
+    "frontend",
+    "abhijeet"
+  ],
+  "homepage": "https://github.com/abhijha73/react-demo#readme",
+  "bugs": {
+    "url": "https://github.com/abhijha73/react-demo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhijha73/react-demo.git"
+  },
+  "license": "ISC",
+  "author": "Abhijeet Kumar Jha",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
