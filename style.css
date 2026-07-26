@@ -1,51 +1,65 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
 }
 
 .logo-img {
-    width: 48px;
-    height: 48px;
+  width: 48px;
+  height: 48px;
 }
-.nav  ul{
-    display: flex;
-    list-style: none;
+.nav {
+  display: flex;
 }
-.nav li{
-    margin: 0 10px;
+.nav a {
+  display: flex;
+  margin: 0 10px;
 }
+
 .restaurant-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .restaurant-card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid transparent;
-    width: 250px;
-    margin: 10px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  width: 250px;
+  margin: 10px;
+  padding: 10px;
+  height: 350px;
 }
 .restaurant-card:hover {
-    border: 1px solid #ccc;
-    cursor: pointer;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 .search-container {
-    
-    margin: 20px 0;
+  margin: 20px 0;
 }
 .filter-btn {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: none;
-    cursor: pointer;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
 }
 .img-container {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.shimmer-card {
+  background: #f0f0f0;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  width: 250px;
+  height: 350px;
+  margin: 10px;
+  padding: 10px;
 }

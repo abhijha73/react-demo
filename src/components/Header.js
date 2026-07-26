@@ -1,4 +1,7 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 const Header = () => {
+  const [loginButtonText, setLoginButtonText] = useState("Login");
   return (
     <div className="header">
       <div className="logo">
@@ -9,20 +12,22 @@ const Header = () => {
         />
       </div>
       <div className="nav">
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-          <li>
-            <a href="#">Cart</a>
-          </li>
-        </ul>
+        <Link to="/">Home</Link>
+
+        <Link to="/about">About</Link>
+
+        <Link to="/contact">Contact</Link>
+        <Link to="/about">Cart</Link>
+
+        <button
+          onClick={() => {
+            setLoginButtonText(
+              loginButtonText === "Login" ? "Logout" : "Login",
+            );
+          }}
+        >
+          {loginButtonText}
+        </button>
       </div>
     </div>
   );

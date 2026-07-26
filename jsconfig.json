@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "target": "es2020",
+    "allowJs": true
+  },
+  "include": ["src"]
+}
