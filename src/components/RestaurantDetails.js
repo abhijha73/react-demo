@@ -1,31 +1,34 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { RestaurentDetailsURL } from "../utils/constants";
+import useResInfo from "./../utils/useResInfo";
+import Items from "./Items";
 
 const RestaurantDetails = () => {
-  const [resDetail, setResDetail] = useState(null);
   const params = useParams();
-  useEffect(() => {
-    getRestaurentDetails();
-  }, []);
-
-  async function getRestaurentDetails() {
-    const res = await fetch(RestaurentDetailsURL + params.id);
-    const detailsOfRestaurent = await res.json();
-    setResDetail(detailsOfRestaurent.data.cards[2].card.card.info);
-  }
+  const resDetail = useResInfo(params.id);
+  const [showIndex, setShowIndex] = useState(0);
 
   return !resDetail ? (
     <div>Welcome to restaurent!!</div>
   ) : (
-    <div>
-      <h3>Welcome to {resDetail.name} restaurent!!</h3>
-      <div>Menu:</div>
-      <ul>
-        {resDetail.cuisines.map((item) => (
-          <li key={Math.random()}>{item}</li>
+    <div className="flex flex-col">
+      <h2 className="text-center">Welcome to {resDetail.name} !!</h2>
+      <h4 className="mt-4 mb-2">Explore Our Menu:</h4>
+      <div>
+        {resDetail.menu.map((category, index) => (
+          <div
+            className="border border-blue-300 p-4 mb-1 rounded-sm"
+            key={Math.random()}
+          >
+            <Items
+              showItems={showIndex === index ? true : false}
+              setShowIndex={() => setShowIndex(index)}
+              category={category}
+              key={Math.random()}
+            />
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
