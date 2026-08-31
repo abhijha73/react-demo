@@ -2,9 +2,10 @@ import { useState, useContext } from "react";
 import useOnlineOfflineStatus from "./../utils/useOnlineOfflineStatus";
 import { Link } from "react-router-dom";
 import UserContext from "./../utils/UserContext";
+import { useSelector } from "react-redux";
 const Header = () => {
   const user = useContext(UserContext);
-  console.log(user);
+  const cart = useSelector((state) => state.cart.items);
   const status = useOnlineOfflineStatus();
   const [loginButtonText, setLoginButtonText] = useState("Login");
   return (
@@ -38,10 +39,10 @@ const Header = () => {
             Contact
           </Link>
           <Link
-            to="/about"
+            to="/cart"
             className="text-white font-medium hover:text-gray-100 transition"
           >
-            Cart
+            Cart ({cart.length} items)
           </Link>
 
           <button

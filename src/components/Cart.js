@@ -1,27 +1,22 @@
-import { useDispatch } from "react-redux";
-import { addToCart } from "./../redux/cartSlice";
-const Items = ({ category, showItems, setShowIndex }) => {
-  //   const [showItems, setShowItems] = useState(false);
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart, resetCart } from "./../redux/cartSlice";
+const Cart = () => {
+  const cart = useSelector((state) => state.cart.items);
+  console.log("cart is: ", cart);
   const dispatch = useDispatch();
 
-  const showNoShowItems = () => {
-    setShowIndex();
+  const removeItemsFromCart = () => {
+    dispatch(removeFromCart());
   };
 
-  const addItemToCart = (item) => {
-    dispatch(addToCart(item));
-  };
   return (
     <div>
-      <div
-        className="flex cursor-pointer items-center justify-between text-xl font-semibold text-gray-900"
-        onClick={showNoShowItems}
-      >
-        <span>{category.category}</span>
-        <span className="text-primary text-sm">{showItems ? "−" : "+"}</span>
+      <div className="my-2 flex justify-between">
+        <div>{cart.length} items</div>
+        <button onClick={() => dispatch(resetCart())}>Clear Cart</button>
       </div>
-      {showItems &&
-        category.items.map((item) => (
+      {cart &&
+        cart.map((item) => (
           <div
             className="mt-4 flex items-center justify-between gap-4 border-t border-gray-200 pt-4"
             key={item.name}
@@ -44,15 +39,16 @@ const Items = ({ category, showItems, setShowIndex }) => {
               <p className="mt-2 font-medium text-gray-800">₹{item.price}</p>
             </div>
             <button
-              onClick={() => addItemToCart(item)}
+              onClick={() => removeItemsFromCart()}
               type="button"
               className="shrink-0 rounded-lg border border-primary bg-white px-4 py-2 text-sm font-bold text-primary shadow-sm transition hover:bg-primary hover:text-white"
             >
-              Add
+              Remove
             </button>
           </div>
         ))}
     </div>
   );
 };
-export default Items;
+
+export default Cart;
