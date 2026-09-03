@@ -31,4 +31,13 @@ module.exports = [
       "react/react-in-jsx-scope": "off",
     },
   },
+  {
+    files: ["**/__test__/**/*.{js,jsx}", "**/*.test.{js,jsx}"],
+    languageOptions: {
+      globals: {
+        test: "readonly",
+        expect: "readonly",
+      },
+    },
+  },
 ];
